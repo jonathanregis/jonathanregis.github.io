@@ -2,37 +2,297 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #DDDDDD;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-image: linear-gradient(rgba(255,255,255,.6),transparent);
+  z-index: 99;
+  box-shadow: 0px 0px 10px 0px rgba(50,50,50,.4);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content{
+  max-width: 1060px;
+  width: 100%;
+}
+
+.contentWrapper{
+  position: relative;
+  background-color: #C1C1C1;
+  align-items: center;
+  justify-content: center;
+  display:flex;
+  z-index: 0;
+  min-height: 100vh;
+  padding-top: 58px;
+}
+
+.headerItems{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  width: 32px;
+  height: 32px;
+}
+
+.cartContainer{
+  position: relative;
+  z-index:100;
+}
+
+.cartButton,.cartButtonOpen, .cartButton:active,.cartButtonOpen:active{
+  padding: 15px;
+  background-color: transparent;
+  border: none !important;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  border-width: 0;
+  appearance: none;
+}
+
+
+.cartButtonOpen{
+  background-color: white;
+}
+
+.cartButton:hover,.cartButtonOpen:hover{
+  background-color: white;
+}
+.cartButton span{
+  margin-left: 3px;
+}
+
+.cartContent{
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  right:0;
+  width: 372px;
+  padding: 10px;
+  z-index: 100;
+  box-shadow: 0px 10px 10px 0px rgba(50,50,50,.4);
+
+}
+
+.cartHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.itemsInCart h5{
+  text-transform: uppercase;
+}
+
+.itemsIncart{
+  
+}
+
+.cartAmount{
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.clearCartButton{
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  appearance: none;
+  background-image: linear-gradient(to bottom, #985fb2 0%, #713b8d 100%);
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 15px 25px 15px 25px;
+  cursor: pointer;
+}
+
+.clearCartButton h5{
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+.overlayCart{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.2);
+  z-index: 1;
+}
+
+.cartList{
+  list-style: none;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cartList li{
+  border-top: solid 1px #eee;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.cartItem{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemImage img{
+  width: 100px;
+}
+
+.itemImage{
+  flex:1;
+}
+
+.itemTitle p{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 5px 0;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 9pt;
+  width: 100%;
+}
+
+.cartRemoveLink{
+  color: grey;
+  text-decoration: underline;
+}
+
+.itemTitle{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 55%;
+}
+
+.itemPrice{
+  color: grey;
+  flex:1;
+  font-size: 9pt
+}
+
+.cartRemoveLink{
+  display: none;
+}
+
+.cartItem:hover .cartRemoveLink{
+  display: initial;
+}
+
+.introSection{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width:100%;
+  flex-direction: column;
+}
+
+.introImage{
+  align-self: center;
+}
+
+.introImage .clearCartButton{
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 150px);
+  z-index: -1;
+}
+
+.introImage img{
+  width: 100%;
+  box-shadow: 0px 0px 10px 0px rgba(50,50,50,.4);
+}
+
+.gameList{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.gameItem{
+  background-color: #DDDDDD;
+  max-width: 19%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 2px 3px rgba(100,100,100,.1);
+}
+
+.gameItem img{
+  width: 100%;
+}
+
+.gameMeta{
+  padding: 5px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.gameMeta h5{
+  margin:0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.actionButtons{
+  align-self: flex-end;
+  margin-top: 15px;
+}
+
+.addToCart, .discountTag{
+  background-color: transparent;
+  border: solid 1px darkgrey;
+  border-radius: 3px;
+  color: grey;
+  padding: 3px 10px;
+  font-size: 9pt;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.addToCart{
+  cursor: pointer;
+}
+
+.discountTag{
+  background-color: #08A673;
+  color: white;
+  margin-right: 5px;
+  border-color: #08A673;
 }
